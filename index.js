@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-const API_Key = process.env.API_Key;
+const API_Key = process.env.apikey;
 const API_URL = 'https://api.openuv.io/api/v1/uv?';
 let lat = 28.5;
 let lng = 77.1;
