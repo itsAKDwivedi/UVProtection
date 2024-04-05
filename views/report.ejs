@@ -1,0 +1,126 @@
+<%- include('partials/header.ejs') %>
+
+<h1 class="center">
+    The location has <%= uv_st %> level of UV radiation.
+</h1> 
+
+
+<div class="report-container">
+    <h2 class="report-heading center">UV and Ozone Levels</h1>
+    <div class="data-container">
+        <div class="data current-level">
+            <label>Current UV Level:</label>
+            <span id="currentUvLevel"><%= uv_idx %> <%= uv_st %></span>
+        </div>
+        <div class="data current-level">
+            <label>Current Ozone Level:</label>
+            <span id="ozoneLevel"><%= ozone %>
+                <% if(ozone<220){ %>Danger
+                <% }else{ %> Normal <% } %>
+            </span>
+        </div>
+        <div class="data">
+            <label>Highest UV Level:</label>
+            <span id="highestUvLevel"><%= uv_max %></span>
+        </div>
+        <div class="data">
+            <label>Current UV Time:</label>
+            <span id="CuvTime"><%= uv_time %> <%= uv_date %> <span class="italic">(H-M-S Y-M-D)</span></span>
+        </div>
+        <div class="data">
+            <label>Highest UV Time:</label>
+            <span id="HuvTime"><%= uvmax_time %> <%= uvmax_date %> <span class="italic">(H-M-S Y-M-D)</span></span>
+        </div>
+        <div class="data">
+            <label>Current Ozone Time:</label>
+            <span id="ozoneTime"><%= ozone_time %> <%= ozone_date %></span>
+        </div>
+    </div>
+</div>
+
+<p class="message"><span class="bold">Note: </span>Ozone level below 220 DU is considered dangerous for us. It is termed as ozone hole.</p>
+
+<table class="indextable">
+    <thead>
+        <tr>
+            <th>UV Level</th>
+            <th>Color</th>
+            <th>Risk Level</th>
+            <th>Recommended protection</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr <% if(uv_idx<=2){ %>class="active" <% } %>>
+            <td>0-2</td>
+            <td><div class="green colordiv"></div></td>
+            <td>Low</td>
+            <td>
+                <ul>
+                    <li>No need of much protection.</li>
+                    <li>Wear sunglasses on bright days.</li>
+                    <li>If you burn easily, cover up and use broad spectrum SPF 15+ sunscreen.</li>
+                    <li>Bright surfaces, sand, water, and snow, will increase UV exposure.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr <% if(uv_idx<=5 && uv_idx>=2){ %>class="active" <% } %>>
+            <td>2-5</td>
+            <td><div class="yellow colordiv"></div></td>
+            <td>Moderate</td>
+            <td>
+                <ul>
+                    <li>Need little care.</li>
+                    <li>Stay in shade near midday when the sun is strongest.</li>
+                    <li>If outdoors, wear sun-protective clothing, a wide-brimmed hat, and UV-blocking sunglasses.</li>
+                    <li>Generously apply broad spectrum SPF 50+ sunscreen every 1.5 hours, even on cloudy days, and after swimming or sweating.</li>
+                    <li>Bright surfaces, such as sand, water, and snow, will increase UV exposure.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr <% if(uv_idx<=7 && uv_idx>=5){ %>class="active" <% } %>>
+            <td>5-7</td>
+            <td><div class="orange colordiv"></div></td>
+            <td>High</td>
+            <td>
+                <ul>
+                    <li>Protection against skin and eye damage is needed.</li>
+                    <li>Reduce time in the sun between 10 a.m. and 4 p.m.</li>
+                    <li>If outdoors, seek shade and wear sun-protective clothing, a wide-brimmed hat, and UV-blocking sunglasses.</li>
+                    <li>Generously apply broad spectrum SPF 50+ sunscreen every 1.5 hours, even on cloudy days, and after swimming or sweating.</li>
+                    <li>Bright surfaces, such as sand, water, and snow, will increase UV exposure.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr <% if(uv_idx<=10 && uv_idx>=7){ %>class="active" <% } %>>
+            <td>7-10</td>
+            <td><div class="red colordiv"></div></td>
+            <td>Very High</td>
+            <td>
+                <ul>
+                    <li>Take extra precautions because unprotected skin and eyes will be damaged and can burn quickly.</li>
+                    <li>Minimize sun exposure between 10 a.m. and 4 p.m.</li>
+                    <li>If outdoors, seek shade and wear sun-protective clothing, a wide-brimmed hat, and UV-blocking sunglasses.</li>
+                    <li>Generously apply broad spectrum SPF 50+ sunscreen every 1.5 hours, even on cloudy days, and after swimming or sweating.</li>
+                    <li>Bright surfaces, such as sand, water, and snow, will increase UV exposure.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr <% if(uv_idx>10){ %>class="active" <% } %>>
+            <td>10+</td>
+            <td><div class="violet colordiv"></div></td>
+            <td>Extreme</td>
+            <td>
+                <ul>
+                    <li>Take all precautions because unprotected skin and eyes can burn in minutes.</li>
+                    <li>Try to avoid sun exposure between 10 a.m. and 4 p.m.</li>
+                    <li>If outdoors, seek shade and wear sun-protective clothing, a wide-brimmed hat, and UV-blocking sunglasses.</li>
+                    <li>Generously apply broad spectrum SPF 50+ sunscreen every 1.5 hours, even on cloudy days, and after swimming or sweating.</li>
+                    <li>Bright surfaces, such as sand, water, and snow, will increase UV exposure.</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<%- include('partials/footer.ejs') %>

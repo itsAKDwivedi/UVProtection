@@ -1,0 +1,61 @@
+<%- include('partials/header.ejs') %>
+
+<body class="projects-page">
+
+    <h1 class="center">Please select your city</h1>
+        <div class="country-tiles">
+
+            <a href="/india" class="country-tile">
+                <img src="images/india.jpg" alt="India" class="country-img">
+                <p class="country-name">
+                    New Delhi
+                </p>
+            </a>
+            
+            <a href="/france" class="country-tile">
+                <img src="images/france.jpg" alt="France" class="country-img">
+                <p class="country-name">                    
+                    Paris                
+                </p>
+            </a>
+            
+            <a href="/usa" class="country-tile">
+                <img src="images/usa.jpg" alt="United states of America" class="country-img">
+                <p class="country-name">                    
+                    Washington DC                    
+                </p>
+            </a>
+
+            <a href="/uae" class="country-tile">
+                <img src="images/uae.jpg" alt="United Arab Emirates" class="country-img">
+                <p class="country-name">                    
+                    Abu Dhabi                    
+                </p>
+            </a>
+            
+            <a href="/sa" class="country-tile">
+                <img src="images/sa.jpg" alt="South Africa" class="country-img">
+                <p class="country-name">                    
+                    Cape Town                    
+                </p>
+            </a>
+            
+            <a href="/argentina" class="country-tile">
+                <img src="images/argentina.jpg" alt="Argentina" class="country-img">
+                <p class="country-name">                    
+                    Buenos Aires                    
+                </p>
+            </a>
+        </div>
+
+    <h1 class="center">Unable to find🥺 ? Manually fill this:</h1>
+
+    <form action="/location" method="post">
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" placeholder="Enter latitude..." required>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" placeholder="Enter longitude..." required>
+        <input type="submit" value="Submit">
+    </form>
+
+<%- include('partials/footer.ejs') %>
