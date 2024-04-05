@@ -355,8 +355,10 @@ h2 {
   height: 40px;
   width: 40px;
   border-radius: 50%;
+  border: 2px solid #000000;
 }
 
 .active{
-  background-color: #ffdd008d;
+  background-color: rgb(183, 255, 0) !important;
+  border: 2px solid #000000;
 }
