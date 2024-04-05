@@ -151,7 +151,7 @@ app.get('/uvreport', async (req, res) => {
       });
     } catch (error) {
       console.error('error', error);
-      res.status(500).send(error);
+      res.status(500).send('API Limit reached ! (50 requests/day). Please try after some time.');
     }
   });
 
